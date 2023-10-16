@@ -1,0 +1,9 @@
+br\com\unincor\web\core\view\BeanLogin.class
+br\com\unincor\web\ProjetoUnincorWeb.class
+br\com\unincor\web\core\view\BeanCursos.class
+br\com\unincor\web\core\view\util\AlunoConverter.class
+br\com\unincor\web\filter\FiltroRequisicao.class
+br\com\unincor\web\core\view\util\DisciplinaConverter.class
+br\com\unincor\web\core\view\BeanAlunos.class
+br\com\unincor\web\core\view\BeanDisciplinas.class
+br\com\unincor\web\core\view\util\CursoConverter.class

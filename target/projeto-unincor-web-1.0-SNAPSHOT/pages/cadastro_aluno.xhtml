@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition  template="../template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="titulo">Cadastro Aluno</ui:define>
+    <ui:define name="conteudo">
+        <p:panel header="Cadastro de Alunos" id="painel">
+            
+            <p:outputPanel rendered="#{beanAlunos.aluno != null}">
+                <h:form id="form-cadastro">
+                    <p:growl />
+                    <p:panelGrid columns="2" columnClasses="ui-g-1 ui-g-5">
+                        <p:outputLabel value="Nome"/>
+                        <p:inputText value="#{beanAlunos.aluno.nome}" required="true" requiredMessage="Informe o nome do aluno"/>
+                        <p:outputLabel value="Matricula"/>
+                        <p:inputMask value="#{beanAlunos.aluno.matricula}" required="true" requiredMessage="Informe o matricula"/>
+                       <p:outputLabel value="Data de nascimento"/>
+                       <p:datePicker value="#{beanAlunos.aluno.dataNascimento}" required="true"/>
+                       <p:outputLabel value="Cursos"/>
+                       <p:selectCheckboxMenu id="multiple"
+                              filter="true" filterMatchMode="startsWith"
+                              label="Cursos" multiple="true" emptyLabel="Selecione..." updateLabel="true"
+                              style="min-width: 15rem" panelStyle="width: 30rem" scrollHeight="250"
+                              value="#{beanAlunos.aluno.cursos}" converter="cursoConverter">
+                           <p:ajax event="itemUnselect" listener="#{beanAlunos.aluno.cursos}"/>
+                           <f:selectItems value="#{beanAlunos.cursos}" var="curso" itemLabel="#{curso.nome}"/>
+                         </p:selectCheckboxMenu>
+                      
+                    </p:panelGrid>
+                    <p:commandButton value="Salvar"
+                                     actionListener="#{beanAlunos.salvar()}"
+                                     update="painel"/>
+
+                    <p:commandButton value="Cancelar" styleClass="ui-button-danger" 
+                                     style="margin-left: 5px" actionListener="#{beanAlunos.cancelar()}" 
+                                     update="painel" immediate="true"/>
+                </h:form>
+            </p:outputPanel>
+            <p:outputPanel rendered="#{beanAlunos.aluno == null}">
+
+                <h:form id="tabela">
+                    <p:commandButton value="Novo" actionListener="#{beanAlunos.novo()}" update="painel"/>
+                    <p:dataTable value="#{beanAlunos.alunos}" var="cli" >
+                        <p:column headerText="Nome" >
+                            <p:outputLabel value="#{cli.nome}"/>
+                        </p:column>
+                        <p:column headerText="Matricula">
+                            <p:outputLabel value="#{cli.matricula}" />
+                        </p:column>
+                        <p:column headerText="Data de Nascimento">
+                            <p:outputLabel value="#{cli.dataNascimento}" />
+                        </p:column>
+                       <p:column headerText="Cursos">
+                           <p:outputLabel value="#{cli.cursos}" />
+                        </p:column>
+                        
+                        <p:column headerText="Opções">
+                            <p:commandButton value="Editar" actionListener="#{beanAlunos.editar(cli)}" update="painel"/>
+                            <p:commandButton style="margin-left: 7px" styleClass="ui-button-danger" 
+                                             value="Remover" actionListener="#{beanAlunos.remover(cli)}" update="painel"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:outputPanel>
+        </p:panel>
+    </ui:define>
+</ui:composition>
