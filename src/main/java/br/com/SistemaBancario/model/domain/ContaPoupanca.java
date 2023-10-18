@@ -20,7 +20,7 @@ import lombok.Setter;
  * @author alunos
  */
 @Entity
-@Table(name = "contas_poupancas")
+@Table(name = "contas_poupanca")
 @Getter
 @Setter
 @NoArgsConstructor
