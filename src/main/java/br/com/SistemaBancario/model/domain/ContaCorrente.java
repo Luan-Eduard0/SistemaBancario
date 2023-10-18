@@ -22,7 +22,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 
-public class ContaCorrente {
+public class ContaCorrente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
