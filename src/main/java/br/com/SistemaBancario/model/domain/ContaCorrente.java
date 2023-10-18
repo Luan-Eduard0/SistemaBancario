@@ -4,10 +4,29 @@
  */
 package br.com.SistemaBancario.model.domain;
 
-/**
- *
- * @author alunos
- */
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.io.Serializable;
+
+import lombok.*;
+
+
+@Getter
+@Setter
+@Entity
+@Table(name = "conta_corrente")
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+
 public class ContaCorrente {
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private long id;
+    private double valorCorrente;
+    private Cliente cliente;
 }

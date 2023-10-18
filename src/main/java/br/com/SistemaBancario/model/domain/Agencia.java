@@ -19,7 +19,7 @@ import lombok.Setter;
  *
  * @author alunos
  */
-@Entity
+
 @Table(name = "cursos")
 @Getter
 @Setter

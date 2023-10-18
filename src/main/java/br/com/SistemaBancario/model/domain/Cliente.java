@@ -12,13 +12,14 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import br.com.SistemaBancario.model.domain.Agencia;
 
 /**
  *
  * @author alunos
  */
-@Entity
-@Table(name = "cursos")
+
+@Table(name = "clientes")
 @Getter
 @Setter
 @NoArgsConstructor
