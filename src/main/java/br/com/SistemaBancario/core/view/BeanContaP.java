@@ -4,6 +4,7 @@
  */
 package br.com.SistemaBancario.core.view;
 
+import br.com.SistemaBancario.model.dao.ContaPoupancaDao;
 import br.com.SistemaBancario.model.domain.ContaPoupanca;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -44,7 +45,7 @@ public class BeanContaP {
     }*/
     
      public void remover(ContaPoupanca id){
-        new ContaPoupancaDao().delete(id.getId());
+        new ContaPoupancaDao().delete(id.getId_contaP());
          buscar();
     }
 
