@@ -10,25 +10,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <ui:define name="titulo">Clientes</ui:define>
+    <ui:define name="titulo" >Clientes</ui:define>
     <ui:define name="conteudo">
          <h:form id="tabela">
-                    <p:commandButton value="Novo" actionListener="#{beanCliente.novo()}"/>
-                    <p:dataTable value="#{beanCliente.clientes}" var="cli" >
+                     <!-- <p:commandButton value="Novo" actionListener=""/> -->
+                    <p:dataTable  var="cli">
                         <p:column headerText="Nome" >
-                            <p:outputLabel value="#{cli.nome}"/>
+                            <!-- <p:outputLabel value="#{cli.nome}"/> -->
                         </p:column>
                         <p:column headerText="CPF">
-                            <p:outputLabel value="#{cli.cpf}" />
+                           <!-- <p:outputLabel value="#{cli.cpf}" /> -->
                         </p:column>
                         <p:column headerText="E-mail">
-                            <p:outputLabel value="#{cli.email}" />
+                          <!--  <p:outputLabel value="#{cli.email}" /> -->
                         </p:column>
                         <p:column headerText="Telefone">
-                            <p:outputLabel value="#{cli.telefone}" />
+                            <!--<p:outputLabel value="#{cli.telefone}" /> -->
                         </p:column>
                         <p:column headerText="Endereço">
-                            <p:outputLabel value="#{cli.endereco}" />
+                            <!--<p:outputLabel value="#{cli.endereco}" /> -->
                         </p:column>
 
                         <p:column headerText="Opções">

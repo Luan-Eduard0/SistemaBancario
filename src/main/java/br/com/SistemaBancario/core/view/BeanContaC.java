@@ -4,6 +4,7 @@
  */
 package br.com.SistemaBancario.core.view;
 
+import br.com.SistemaBancario.model.dao.ContaCorrenteDao;
 import br.com.SistemaBancario.model.domain.ContaCorrente;
 import java.util.List;
 import javax.annotation.PostConstruct;

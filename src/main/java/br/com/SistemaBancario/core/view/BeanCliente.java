@@ -4,6 +4,7 @@
  */
 package br.com.SistemaBancario.core.view;
 
+import br.com.SistemaBancario.model.dao.ClienteDao;
 import br.com.SistemaBancario.model.domain.Cliente;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -52,7 +53,7 @@ public class BeanCliente {
     }*/
     
      public void remover(Cliente id){
-        new ClienteDao().delete(id.getId());
+        new ClienteDao().delete(id.getId_cliente());
          buscar();
     }
 

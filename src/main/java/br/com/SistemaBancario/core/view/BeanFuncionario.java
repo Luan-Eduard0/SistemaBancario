@@ -4,6 +4,7 @@
  */
 package br.com.SistemaBancario.core.view;
 
+import br.com.SistemaBancario.model.dao.FuncionarioDao;
 import br.com.SistemaBancario.model.domain.Funcionario;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -44,7 +45,7 @@ public class BeanFuncionario {
     }*/
     
      public void remover(Funcionario id){
-        new FuncionarioDao().delete(id.getId());
+        new FuncionarioDao().delete(id.getId_funcionario());
          buscar();
     }
 
