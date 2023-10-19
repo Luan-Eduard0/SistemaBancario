@@ -1,12 +1,13 @@
 
 package br.com.SistemaBancario.model.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
+
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ import br.com.SistemaBancario.model.domain.Agencia;
  * @author alunos
  */
 
+@Entity
 @Table(name = "clientes")
 @Getter
 @Setter
@@ -27,5 +29,14 @@ public class Cliente extends Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cliente;
+
+
+    @OneToMany(mappedBy = "cliente")
     private Agencia agencia;
+
+    @OneToOne(mappedBy = "conta_correntes")
+    private ContaCorrente contaCorrente;
+
+    @OneToOne(mappedBy = "conta_poupancas")
+    private ContaPoupanca contaPoupanca;
 }

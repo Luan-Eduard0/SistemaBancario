@@ -4,11 +4,8 @@
  */
 package br.com.SistemaBancario.model.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
 import lombok.*;
@@ -17,7 +14,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "conta_corrente")
+@Table(name = "conta_correntes")
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -28,5 +25,14 @@ public class ContaCorrente implements Serializable {
 
     private long id;
     private double valorCorrente;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_clientes", referencedColumnName = "id_clientes")
     private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_agencia", referencedColumnName = "id_agencia")
+    private Agencia agencia;
+
+
 }
