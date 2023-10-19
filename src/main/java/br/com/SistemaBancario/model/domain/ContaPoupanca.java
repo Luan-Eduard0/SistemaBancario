@@ -4,11 +4,8 @@
  */
 package br.com.SistemaBancario.model.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,5 +27,10 @@ public class ContaPoupanca implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_contaP;
     private Double valorDepositado;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_clientes", referencedColumnName = "id_clientes")
     private Cliente cliente;
+
+
 }

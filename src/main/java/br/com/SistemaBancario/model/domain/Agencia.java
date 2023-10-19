@@ -4,12 +4,11 @@
  */
 package br.com.SistemaBancario.model.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,5 +28,7 @@ public class Agencia implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_agencia;
-   
+
+    @OneToMany(mappedBy = "agencia")
+    List<ContaCorrente> contaCorrentes;
 }
