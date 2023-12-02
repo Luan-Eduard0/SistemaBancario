@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 //Coloca as page aqui
 @WebFilter("")
-public class FiltroRequisicaoGerente implements Filter {
+public class FiltroRequisicaoFuncionario implements Filter {
         @Override
         public void init(FilterConfig filterConfig) throws ServletException {
 

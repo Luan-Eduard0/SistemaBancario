@@ -1,42 +1,35 @@
-
 package br.com.SistemaBancario.model.domain;
-
 
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import br.com.SistemaBancario.model.domain.Agencia;
-
-/**
- *
- * @author alunos
- */
 
 @Entity
 @Table(name = "clientes")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Cliente extends Usuario implements Serializable{
+public class Cliente extends Usuario implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_cliente;
+    @Column(name = "id_cliente")
+    private Long idCliente;
 
+    @Column(nullable = false)
+    private String senha;
 
-    @OneToMany(mappedBy = "cliente")
+    @ManyToOne
+    @JoinColumn(name = "id_agencia")
     private Agencia agencia;
 
-    @OneToOne(mappedBy = "conta_correntes")
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private ContaCorrente contaCorrente;
 
-    @OneToOne(mappedBy = "conta_poupancas")
+    @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private ContaPoupanca contaPoupanca;
 }

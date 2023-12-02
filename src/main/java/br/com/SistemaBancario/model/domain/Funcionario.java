@@ -29,5 +29,6 @@ public class Funcionario extends Usuario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_funcionario;
-    
+    private String senha;
+
 }
