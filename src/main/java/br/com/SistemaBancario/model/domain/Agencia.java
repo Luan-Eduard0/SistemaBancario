@@ -22,13 +22,12 @@ import lombok.Setter;
 @Table(name = "agencias")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Agencia implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_agencia;
+    @Column(name = "id_agencia")
+    private Long idAgencia;
 
-    @OneToMany(mappedBy = "agencia")
-    List<ContaCorrente> contaCorrentes;
+    @OneToMany(mappedBy = "agencia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ContaCorrente> contaCorrentes;
 }
