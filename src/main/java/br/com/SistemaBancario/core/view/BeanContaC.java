@@ -6,14 +6,23 @@ package br.com.SistemaBancario.core.view;
 
 import br.com.SistemaBancario.model.dao.ContaCorrenteDao;
 import br.com.SistemaBancario.model.domain.ContaCorrente;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author contaCorrentes
  */
-public class BeanContaC {
+@Getter
+@ManagedBean
+@ViewScoped
+@Setter
+public class BeanContaC implements Serializable{
     private ContaCorrente contaCorrente;
     private List<ContaCorrente> contaCorrentes;
     private boolean editando = false;

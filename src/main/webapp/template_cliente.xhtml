@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <title><ui:insert name="titulo"/></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <style>
+
+            body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link.ui-state-hover{
+                background: linear-gradient(90deg, rgba(255,98,80,1) 56%, rgba(247,102,102,1) 100%);
+            }
+            body .ui-menu .ui-menu-list .ui-menu-child{
+                background: linear-gradient(90deg, rgba(250,128,114,1) 14%, rgba(239,199,199,1) 100%);
+            }
+            body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text{
+                color: black
+            }
+            body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-icon{
+                color: black
+            }
+            body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-icon-triangle-1-s:last-child{
+                color:black
+            }
+            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell{
+
+            }
+
+
+            body .title{
+                font-size: 35px;
+                text-align: center;
+            }
+            body .conteudo{
+                text-align: center;
+                margin-top: 25px;
+
+            }
+
+            body .index-grid .ui-button{
+                font-size: 20px;
+                background-color: salmon;
+                border: salmon;
+
+            }
+            body .index-grid .ui-button:after{
+            }
+            
+        </style>
+    </h:head>
+    <h:body>
+        <div>
+            <h:form>
+                <p:menubar style="background-color: salmon; margin: -10px -10px;">
+
+                    <p:menuitem value="Inicio" outcome="/pages/index.jsf" icon="pi pi-home" class="teste" />
+                    <p:menuitem value="Emprestimos" outcome="/pages/emprestimos" icon = "pi pi-users"/>
+                    <p:submenu label="Contas" icon="pi pi-credit-card">
+                        <p:menuitem value="Conta Corrente" outcome="/pages/conta_corrente"/>
+                        <p:menuitem value="Conta Poupança" outcome="/pages/conta_poupanca"/>
+                    </p:submenu>
+
+                    <p:menuitem value="Sair" icon="pi pi-power-off"/>
+                </p:menubar>
+            </h:form>
+        </div>
+        <div style="margin: 15px 0px">
+            <p:staticMessage severity="info" summary="Bem vindo, #{beanIndex.usuario.nome}" />
+            <ui:insert name="conteudo" />
+        </div>
+        <div > <p:panelGrid columns="3" class="index-grid">
+                <p:column><div class="title">Emprestimo</div><div class="conteudo"><p:commandButton value="Realizar emprestimos"></p:commandButton></div></p:column>
+                <p:column><div class="title">Transações</div><div class="conteudo"><p:commandButton value="Realizar transações"></p:commandButton></div></p:column>
+                <p:column><div class="title">Pagamentos</div><div class="conteudo"><p:commandButton value="Realizar pagamentos"></p:commandButton></div></p:column>
+            </p:panelGrid>
+        </div>
+    </h:body>
+</html>

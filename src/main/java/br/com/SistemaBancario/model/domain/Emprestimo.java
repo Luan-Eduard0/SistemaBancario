@@ -31,5 +31,8 @@ public class Emprestimo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_emprestimo;
     private Boolean ativo;
+    private Integer parcelas;
     private Double valorEmprestimo;
+    private String dataRealizado;
+    private String dataPagamento;
 }

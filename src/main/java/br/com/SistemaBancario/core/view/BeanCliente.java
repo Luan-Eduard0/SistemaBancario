@@ -3,6 +3,7 @@ package br.com.SistemaBancario.core.view;
 import br.com.SistemaBancario.model.dao.ClienteDao;
 import br.com.SistemaBancario.model.domain.Cliente;
 import br.com.SistemaBancario.utils.filter.ExceptionHandler;
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @ManagedBean
 @ViewScoped
 @Setter
-public class BeanCliente {
+public class BeanCliente implements Serializable{
 
     private Cliente cliente;
     private String confirmarSenha;

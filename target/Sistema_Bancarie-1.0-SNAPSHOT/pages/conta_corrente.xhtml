@@ -7,14 +7,8 @@
     <ui:define name="titulo" >Conta corrente</ui:define>
     <ui:define name="conteudo">
          <h:form id="tabela">
-                     <!-- <p:commandButton value="Novo" actionListener=""/> -->
                     <p:dataTable  var="cli">
-                        <p:column headerText="Nome" >
-                            <!-- <p:outputLabel value="#{cli.nome}"/> -->
-                        </p:column>
-                        <p:column headerText="Valor">
-                            <!--<p:outputLabel value="#{cli.valor}" /> -->
-                        </p:column>
+                        
 
                         <p:column headerText="Opções">
                             <p:commandButton value="Editar" actionListener="#{beanCliente.editar(cli)}" update="painel"/>

@@ -3,6 +3,7 @@ package br.com.SistemaBancario.core.view;
 import br.com.SistemaBancario.model.dao.FuncionarioDao;
 import br.com.SistemaBancario.model.domain.Funcionario;
 import br.com.SistemaBancario.utils.filter.ExceptionHandler;
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @ManagedBean
 @ViewScoped
 @Setter
-public class BeanFuncionario {
+public class BeanFuncionario implements Serializable{
 
     // Getters e Setters
     private Funcionario funcionario;

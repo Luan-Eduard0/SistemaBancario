@@ -13,28 +13,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <ui:define name="titulo" >Clientes</ui:define>
     <ui:define name="conteudo">
          <h:form id="tabela">
-                     <!-- <p:commandButton value="Novo" actionListener=""/> -->
-                    <p:dataTable  var="cli">
+             <p:commandButton value="Cadastrar Cliente" actionListener="#{beanCliente.novo()}"/> 
+                     <p:dataTable  value="#{beanCliente.clientes}" var="cli">
                         <p:column headerText="Nome" >
-                            <!-- <p:outputLabel value="#{cli.nome}"/> -->
+                            <p:outputLabel value="#{cli.nome}"/>
                         </p:column>
                         <p:column headerText="CPF">
-                           <!-- <p:outputLabel value="#{cli.cpf}" /> -->
+                          <p:outputLabel value="#{cli.cpf}" />
                         </p:column>
                         <p:column headerText="E-mail">
-                          <!--  <p:outputLabel value="#{cli.email}" /> -->
+                           <p:outputLabel value="#{cli.email}" /> 
                         </p:column>
                         <p:column headerText="Telefone">
-                            <!--<p:outputLabel value="#{cli.telefone}" /> -->
+                          <p:outputLabel value="#{cli.telefone}" /> 
                         </p:column>
                         <p:column headerText="Endereço">
-                            <!--<p:outputLabel value="#{cli.endereco}" /> -->
+                           <p:outputLabel value="#{cli.endereco}" /> 
                         </p:column>
 
                         <p:column headerText="Opções">
                             <p:commandButton value="Editar" actionListener="#{beanCliente.editar(cli)}" update="painel"/>
-                            <p:commandButton style="margin-left: 7px" styleClass="ui-button-danger" 
-                                             value="Remover" actionListener="#{beanCliente.remover(cli)}" update="painel"/>
+                            
                         </p:column>
                     </p:dataTable>
                 </h:form>

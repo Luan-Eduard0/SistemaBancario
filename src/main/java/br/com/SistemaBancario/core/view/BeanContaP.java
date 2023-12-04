@@ -6,14 +6,23 @@ package br.com.SistemaBancario.core.view;
 
 import br.com.SistemaBancario.model.dao.ContaPoupancaDao;
 import br.com.SistemaBancario.model.domain.ContaPoupanca;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author contaPoupancas
  */
-public class BeanContaP {
+@Getter
+@ManagedBean
+@ViewScoped
+@Setter
+public class BeanContaP implements Serializable{
     private ContaPoupanca contaPoupanca;
     private List<ContaPoupanca> contaPoupancas;
     private boolean editando = false;

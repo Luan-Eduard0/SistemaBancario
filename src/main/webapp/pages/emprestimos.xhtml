@@ -1,0 +1,59 @@
+<ui:composition  template="../template_cliente.xhtml"
+                 xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:f="http://java.sun.com/jsf/core"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="titulo" >Emprestimo</ui:define>
+    <ui:define name="conteudo">
+            <p:outputPanel id="painel-emprestimo" >
+                <p:panel header="Realizar novo emprestimo" 
+                         rendered="#{beanEmprestimo.emprestimo == null}" >
+                    <h:form id="form-lista">
+                        <p:commandButton value="Solicitar emprestimo" actionListener="#{beanEmprestimo.novo()}" update="painel-emprestimo"/>
+                        <p:dataTable value="#{beanEmprestimo.emprestimos}" var="emprestimo">
+                            <p:column headerText="Data do emprestimo" >
+                                <p:outputLabel value="#{emprestimo.nome}"/>
+                            </p:column>
+                            <p:column headerText="Valor">
+                                <p:outputLabel value="#{emprestimo.valor}" />
+                            </p:column>
+                            <p:column headerText="Parcelas">
+                                <p:outputLabel value="#{emprestimo.parcelas}" />
+                            </p:column>
+                            <p:column headerText="Status">
+                                <p:outputLabel value="#{emprestimo.ativo}" /> 
+                            </p:column>
+
+                            <p:column headerText="Opções">
+                                <p:commandButton value="Adiantar Parcelas" actionListener="#{beanEmprestimo.editar(emprestimo)}" update="painel-emprestimo"/>
+
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+                <p:panel header="Solicitar Emprestimo" 
+                         rendered="#{beanEmprestimo.emprestimo != null}" >
+                    <h:form id="form-cadastro" >
+
+                        <div class="ui-fluid">
+                            <p:panelGrid columns="2" >
+                                <p:outputLabel value="Valor" />
+                                <p:inputText value="#{beanEmprestimo.emprestimo.valor}"
+                                             required="true" requiredMessage="Informe o nome!"/>
+
+                            </p:panelGrid>
+                        </div>
+                        <p:messages />
+                        <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
+                                         actionListener="#{beanEmprestimo.salvar()}"
+                                         update="painel-emprestimo" partialSubmit="true" />
+                        <p:commandButton value="Cancelar" icon="pi pi-times"
+                                         actionListener="#{beanEmprestimo.cancelar()}"
+                                         update="painel-emprestimo" immediate="true" />
+                    </h:form>
+                </p:panel>
+            </p:outputPanel>
+    </ui:define>
+
+</ui:composition>
