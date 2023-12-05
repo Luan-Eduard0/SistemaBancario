@@ -29,7 +29,7 @@ public class ContaPoupanca implements Serializable {
     private Double valorDepositado;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_clientes", referencedColumnName = "id_clientes")
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     private Cliente cliente;
 
 

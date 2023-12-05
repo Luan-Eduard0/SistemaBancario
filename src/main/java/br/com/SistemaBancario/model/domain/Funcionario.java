@@ -25,10 +25,18 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Funcionario extends Usuario implements Serializable{
+public class Funcionario implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_funcionario;
+    private String login;
     private String senha;
 
+    private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;
+    private String endereco;
+    private Boolean gerente;
+    
 }

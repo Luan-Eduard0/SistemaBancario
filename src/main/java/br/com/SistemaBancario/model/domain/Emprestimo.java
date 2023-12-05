@@ -32,6 +32,7 @@ public class Emprestimo implements Serializable {
     private Long id_emprestimo;
     private Boolean ativo;
     private Integer parcelas;
+    private Double valor;
     private Double valorEmprestimo;
     private String dataRealizado;
     private String dataPagamento;

@@ -5,38 +5,95 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 -->
 <!DOCTYPE html>
 <ui:composition  template="../template.xhtml"
-    xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                 xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:f="http://java.sun.com/jsf/core"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="titulo" >Clientes</ui:define>
     <ui:define name="conteudo">
-         <h:form id="tabela">
-             <p:commandButton value="Cadastrar Cliente" actionListener="#{beanCliente.novo()}"/> 
-                     <p:dataTable  value="#{beanCliente.clientes}" var="cli">
+        <p:outputPanel id="op-cliente">
+            <p:panel header="Cadastro de Clientes">
+                <h:form id="tabela">
+                    <p:commandButton value="Cadastrar Cliente" actionListener="#{beanCliente.novo()}"/> 
+                    <p:dataTable  value="#{beanCliente.clientes}" var="cli">
                         <p:column headerText="Nome" >
                             <p:outputLabel value="#{cli.nome}"/>
                         </p:column>
                         <p:column headerText="CPF">
-                          <p:outputLabel value="#{cli.cpf}" />
+                            <p:outputLabel value="#{cli.cpf}" />
                         </p:column>
                         <p:column headerText="E-mail">
-                           <p:outputLabel value="#{cli.email}" /> 
+                            <p:outputLabel value="#{cli.email}" /> 
                         </p:column>
                         <p:column headerText="Telefone">
-                          <p:outputLabel value="#{cli.telefone}" /> 
+                            <p:outputLabel value="#{cli.telefone}" /> 
                         </p:column>
                         <p:column headerText="Endereço">
-                           <p:outputLabel value="#{cli.endereco}" /> 
+                            <p:outputLabel value="#{cli.endereco}" /> 
                         </p:column>
 
                         <p:column headerText="Opções">
-                            <p:commandButton value="Editar" actionListener="#{beanCliente.editar(cli)}" update="painel"/>
-                            
+                            <p:splitButton  value="Editar" action="#{buttonView.save}" update="tabela" icon="pi pi-save">
+                                <p:menuitem value="Adicionar Conta Poupança" action="#{buttonView.update}" update="tabela" icon="pi pi-refresh"/>
+                                <p:menuitem value="Adicionar Conta Corrente" action="#{beanCliente.delete}" ajax="false" icon="pi pi-times"/>
+                                <p:menuitem value="Excluir" action="#{buttonView.update}" update="tabela" icon="pi pi-trash"/>
+                                <p:divider />
+                               
+                            </p:splitButton>
+
                         </p:column>
                     </p:dataTable>
                 </h:form>
+            </p:panel>
+            <p:panel header="Cadastrar Usuário" 
+                     >
+                <h:form id="form-cadastro" >
+
+                    <div class="ui-fluid">
+                        <p:panelGrid columns="2" >
+                            <p:outputLabel value="Nome" />
+                            <p:inputText value="#{beanCliente.cliente.nome}"
+                                         required="true" requiredMessage="Informe o nome!"/>
+
+                            <p:outputLabel value="E-mail" />
+                            <p:inputText value="#{beanCliente.cliente.email}"
+                                         required="true" requiredMessage="Informe o e-mail!"/>
+
+                            <p:outputLabel value="CPF" />
+                            <p:inputText value="#{beanCliente.cliente.cpf}"
+                                         required="true" requiredMessage="Informe o cpf!"/>
+
+                            <p:outputLabel value="Telefone" />
+                            <p:inputText value="#{beanCliente.cliente.telefone}"
+                                         required="true" requiredMessage="Informe o telefone!"/>
+
+                            <p:outputLabel value="Endereço" />
+                            <p:inputText value="#{beanCliente.cliente.endereco}"
+                                         required="true" requiredMessage="Informe o endereço!"/>
+
+                            <p:outputLabel value="Senha" rendered="#{beanCliente.cliente.isNew()}"/>
+                            <p:password value="#{beanCliente.cliente.senha}" 
+                                        rendered="#{beanCliente.cliente.isNew()}" 
+                                        required="true" requiredMessage="Informe a senha!"/>
+
+                            <p:outputLabel value="Confirmar Senha" rendered="#{beanCliente.cliente.isNew()}" />
+                            <p:password value="#{beanCliente.confirmarSenha}" 
+                                        rendered="#{beanCliente.cliente.isNew()}"
+                                        required="true" requiredMessage="Informe a confirmação da senha!"/>
+                        </p:panelGrid>
+                    </div>
+                    <p:messages />
+                    <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
+                                     actionListener="#{beanCliente.salvar()}"
+                                     update="op-cliente" />
+                    <p:commandButton value="Cancelar" icon="pi pi-times"
+                                     actionListener="#{beanCliente.cancelar()}"
+                                     update="op-cliente" immediate="true" />
+                </h:form>
+            </p:panel>
+
+        </p:outputPanel>
     </ui:define>
-     
+
 </ui:composition>

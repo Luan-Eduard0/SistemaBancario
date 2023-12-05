@@ -13,13 +13,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <title><ui:insert name="titulo"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <style>
-
+            
             body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link.ui-state-hover{
-                background: linear-gradient(90deg, rgba(255,98,80,1) 56%, rgba(247,102,102,1) 100%);
+               background: linear-gradient(90deg, rgba(255,98,80,1) 56%, rgba(247,102,102,1) 100%);
             }
             body .ui-menu .ui-menu-list .ui-menu-child{
-                background: linear-gradient(90deg, rgba(250,128,114,1) 14%, rgba(239,199,199,1) 100%);
-            }
+              background: linear-gradient(90deg, rgba(250,128,114,1) 14%, rgba(239,199,199,1) 100%);
+            }           
             body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-menuitem-text{
                 color: black
             }
@@ -29,102 +29,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-icon-triangle-1-s:last-child{
                 color:black
             }
-            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive{
-
-                width: 100%;
-                padding-left: 25px
-            }
-            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell{
-                box-shadow: 0 3px 6px black;
-                grid-template-columns: max-content auto;
-                grid-template-rows: auto max-content;
-                background: #333 center;
-                background-size: cover;
-                color: black;
-                width: 32%;
-                height: 500px;
-                padding: 2rem;
-                margin-left: 10px;
-
-
-            }
-            #em_card{
-                background: #333 url(https://cdn.pixabay.com/photo/2016/12/06/04/17/money-1885540_1280.jpg) center;
-            }
-            #tr_card{
-                 background: #333 url(https://cdn.pixabay.com/photo/2015/09/06/01/06/credit-card-926862_1280.jpg) center;
-            }
-            #pg_card{
-                 background: #333 url(https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg) center;
-            }
-
-            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell::hover{
-                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-            }
-
-            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell::before{
-                content: "";
-                display: block;
-                width: 100%;
-                height: 50%;
-                border: 1px solid salmon;
-                grid-row: 1 / 2;
-                border-right: none;
-                border-bottom: none;
-            }
-
-
-            h2 {
-                margin: 1rem 1rem -.5rem 0;
-                font-family: 'Pragati Narrow', sans-serif;
-                font-size: 2rem;
-                max-width: 100%;
-            }
-
-            body .title{
-
-                margin: 1rem 1rem -.5rem 0;
-                font-family: 'Pragati Narrow', sans-serif;
-                font-size: 2rem;
-                max-width: 100%;
-                text-align: center;
-
-            }
-            body .title::first-letter{
-                color:salmon;
-            }
-            body .conteudo{
-                text-align: center;
-                margin-top: 25px;
-
-
-            }
-
-            body .index-grid .ui-button{
-                font-size: 20px;
-                background-color: salmon;
-                border: salmon;
-
-            }
-            body .index-grid .ui-button:after{
-            }
-            .container{
-                margin-top: 25px; 
-                height: 300px;
-                width: 100%;
-                content: "";
-                display: block;
-                width: 100%;
-                border: 1px solid salmon;
-                grid-row: 1 / 2;
-            }
-
-        </style>
+            </style>
     </h:head>
     <h:body>
         <div>
             <h:form>
-                <p:menubar style="background-color: salmon; margin: -10px -10px;">
+               <p:menubar style="background-color: salmon; margin: -10px -10px;">
 
                     <p:menuitem value="Inicio" outcome="/pages/index.jsf" icon="pi pi-home" class="teste" />
                     <p:menuitem value="Emprestimos" outcome="/pages/emprestimos" icon = "pi pi-users"/>
@@ -137,33 +47,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 </p:menubar>
             </h:form>
         </div>
-        <div style="margin: 15px 0px">
-            <p:staticMessage severity="info" summary="Bem vindo, #{beanIndex.usuario.nome}" />
+        <div>
             <ui:insert name="conteudo" />
         </div>
-        <div > <p:panelGrid columns="3" class="index-grid">
-                <p:column id="em_card"><div class="title">Emprestimo</div>
-                    <div>
-                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
-                    </div>
-                    <div class="conteudo"><p:commandButton value="Realizar emprestimos"></p:commandButton></div></p:column>
-
-                <p:column id="tr_card"><div class="title">Transações</div>
-                    <div>
-                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
-                    </div>
-                    <div class="conteudo"><p:commandButton value="Realizar transações"></p:commandButton></div></p:column>
-
-                <p:column id="pg_card"><div class="title">Pagamentos</div>
-                    <div>
-                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
-                    </div>
-                    <div class="conteudo"><p:commandButton value="Realizar pagamentos"></p:commandButton></div></p:column>
-            </p:panelGrid>
-        </div>
-
     </h:body>
-    <footer>
-        <div class="container"></div>
-    </footer>
 </html>
+    

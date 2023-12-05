@@ -27,7 +27,7 @@ public class ContaCorrente implements Serializable {
     private double valorCorrente;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_clientes", referencedColumnName = "id_clientes")
+    @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     private Cliente cliente;
 
     @ManyToOne

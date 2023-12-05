@@ -4,21 +4,26 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "clientes")
 @Getter
 @Setter
-public class Cliente extends Usuario implements Serializable {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private Long idCliente;
+    
+    private String nome;
+    private String cpf;
+    private String email;
+    private String telefone;
+    private String endereco;
+
 
     @Column(nullable = false)
     private String senha;
@@ -32,4 +37,9 @@ public class Cliente extends Usuario implements Serializable {
 
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private ContaPoupanca contaPoupanca;
+    
+     @Transient
+    public boolean isNew() {
+        return idCliente == null;
+    }
 }
