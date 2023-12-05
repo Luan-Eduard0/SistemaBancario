@@ -29,18 +29,74 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link .ui-icon-triangle-1-s:last-child{
                 color:black
             }
-            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell{
+            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive{
 
+                width: 100%;
+                padding-left: 25px
+            }
+            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell{
+                box-shadow: 0 3px 6px black;
+                grid-template-columns: max-content auto;
+                grid-template-rows: auto max-content;
+                background: #333 center;
+                background-size: cover;
+                color: black;
+                width: 32%;
+                height: 500px;
+                padding: 2rem;
+                margin-left: 10px;
+
+
+            }
+            #em_card{
+                background: #333 url(https://cdn.pixabay.com/photo/2016/12/06/04/17/money-1885540_1280.jpg) center;
+            }
+            #tr_card{
+                 background: #333 url(https://cdn.pixabay.com/photo/2015/09/06/01/06/credit-card-926862_1280.jpg) center;
+            }
+            #pg_card{
+                 background: #333 url(https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg) center;
+            }
+
+            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell::hover{
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+
+            .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell::before{
+                content: "";
+                display: block;
+                width: 100%;
+                height: 50%;
+                border: 1px solid salmon;
+                grid-row: 1 / 2;
+                border-right: none;
+                border-bottom: none;
             }
 
 
+            h2 {
+                margin: 1rem 1rem -.5rem 0;
+                font-family: 'Pragati Narrow', sans-serif;
+                font-size: 2rem;
+                max-width: 100%;
+            }
+
             body .title{
-                font-size: 35px;
+
+                margin: 1rem 1rem -.5rem 0;
+                font-family: 'Pragati Narrow', sans-serif;
+                font-size: 2rem;
+                max-width: 100%;
                 text-align: center;
+
+            }
+            body .title::first-letter{
+                color:salmon;
             }
             body .conteudo{
                 text-align: center;
                 margin-top: 25px;
+
 
             }
 
@@ -52,7 +108,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             }
             body .index-grid .ui-button:after{
             }
-            
+            .container{
+                margin-top: 25px; 
+                height: 300px;
+                width: 100%;
+                content: "";
+                display: block;
+                width: 100%;
+                border: 1px solid salmon;
+                grid-row: 1 / 2;
+            }
+
         </style>
     </h:head>
     <h:body>
@@ -76,10 +142,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <ui:insert name="conteudo" />
         </div>
         <div > <p:panelGrid columns="3" class="index-grid">
-                <p:column><div class="title">Emprestimo</div><div class="conteudo"><p:commandButton value="Realizar emprestimos"></p:commandButton></div></p:column>
-                <p:column><div class="title">Transações</div><div class="conteudo"><p:commandButton value="Realizar transações"></p:commandButton></div></p:column>
-                <p:column><div class="title">Pagamentos</div><div class="conteudo"><p:commandButton value="Realizar pagamentos"></p:commandButton></div></p:column>
+                <p:column id="em_card"><div class="title">Emprestimo</div>
+                    <div>
+                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
+                    </div>
+                    <div class="conteudo"><p:commandButton value="Realizar emprestimos"></p:commandButton></div></p:column>
+
+                <p:column id="tr_card"><div class="title">Transações</div>
+                    <div>
+                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
+                    </div>
+                    <div class="conteudo"><p:commandButton value="Realizar transações"></p:commandButton></div></p:column>
+
+                <p:column id="pg_card"><div class="title">Pagamentos</div>
+                    <div>
+                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
+                    </div>
+                    <div class="conteudo"><p:commandButton value="Realizar pagamentos"></p:commandButton></div></p:column>
             </p:panelGrid>
         </div>
+
     </h:body>
+    <footer>
+        <div class="container"></div>
+    </footer>
 </html>
