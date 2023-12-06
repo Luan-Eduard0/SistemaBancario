@@ -6,7 +6,7 @@
                  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="titulo" >Conta poupança</ui:define>
     <ui:define name="conteudo">
-        <p:outputPanel>
+        <p:outputPanel id="op-poupanca">
 
             <p:panel header="Listagem de contas">
                 <h:form id="tabela">
@@ -37,22 +37,26 @@
 
                     <div class="ui-fluid">
                         <p:panelGrid columns="2" >
-                            <p:outputLabel value="Nome" />
-                           <p:selectOneMenu value="#{beanDisciplinas.disciplina.curso}"  converter="cursoConverter">
+                            <p:outputLabel value="Cliente" />
+                            <p:selectOneMenu value="#{beanContaP.contaPoupanca.cliente}"  converter="converterCliente">
                             <f:selectItem itemLabel="(selecione)"  noSelectionOption="true"/>
-                            <f:selectItems value="#{beanDisciplinas.cursos}" var="curso"  itemLabel="#{curso.nome}"  />
+                            <f:selectItems value="#{beanContaP.clientes}" var="cliente"  itemLabel="#{cliente.nome}"  />
                         </p:selectOneMenu>
+                            
+                            <p:outputLabel value="Valor" />
+                            <p:inputText value="#{beanContaP.contaPoupanca.valorDepositado}"
+                                         required="true" requiredMessage="Informe o nome!"/>
 
 
                         </p:panelGrid>
                     </div>
                     <p:messages />
                     <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
-                                     actionListener="#{beanCliente.salvar()}"
-                                     update="op-cliente" />
+                                     actionListener="#{beanContaP.salvar()}"
+                                     update="op-poupanca" />
                     <p:commandButton value="Cancelar" icon="pi pi-times"
                                      actionListener="#{beanCliente.cancelar()}"
-                                     update="op-cliente" immediate="true" />
+                                     update="op-poupanca" immediate="true" />
                 </h:form>
             </p:panel>
 

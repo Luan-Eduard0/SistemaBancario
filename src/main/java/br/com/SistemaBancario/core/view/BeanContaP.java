@@ -4,7 +4,9 @@
  */
 package br.com.SistemaBancario.core.view;
 
+import br.com.SistemaBancario.model.dao.ClienteDao;
 import br.com.SistemaBancario.model.dao.ContaPoupancaDao;
+import br.com.SistemaBancario.model.domain.Cliente;
 import br.com.SistemaBancario.model.domain.ContaPoupanca;
 import java.io.Serializable;
 import java.util.List;
@@ -64,5 +66,8 @@ public class BeanContaP implements Serializable{
         this.contaPoupanca = contaPoupanca;
     }
 
+    public List<Cliente> getClientes() {
+        return new ClienteDao().findAll();
+    }
    
 }

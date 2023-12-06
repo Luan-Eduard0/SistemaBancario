@@ -6,17 +6,61 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="titulo" >Conta corrente</ui:define>
     <ui:define name="conteudo">
-         <h:form id="tabela">
-                    <p:dataTable  var="cli">
-                        
+         <p:outputPanel id="op-corrente">
+
+            <p:panel header="Listagem de contas">
+                <h:form id="tabela">
+                    <p:commandButton value="Cadastrar nova conta" actionListener="#{beanContaC.novo()}"/> 
+                    <p:dataTable  value="#{beanContaC.contaCorrentes}" var="conta">
+                        <p:column headerText="Nome Cliente" >
+                            <p:outputLabel value="#{conta.cliente.nome}"/>
+                        </p:column>
+                        <p:column headerText="CPF">
+                            <p:outputLabel value="#{conta.cliente.cpf}" />
+                        </p:column>
+                        <p:column headerText="Investimentos/Poupança">
+                            <p:outputLabel value="#{conta.valorCorrente}" /> 
+                        </p:column>
 
                         <p:column headerText="Opções">
-                            <p:commandButton value="Editar" actionListener="#{beanCliente.editar(cli)}" update="painel"/>
-                            <p:commandButton style="margin-left: 7px" styleClass="ui-button-danger" 
-                                             value="Remover" actionListener="#{beanCliente.remover(cli)}" update="painel"/>
+                            <p:splitButton  value="Editar" action="#{buttonView.save}" update="tabela" icon="pi pi-save">
+                                <p:menuitem value="Excluir" action="#{beanContaC.contaCorrente.remover(conta)}" update="tabela" icon="pi pi-trash"/>
+                            </p:splitButton>
+
                         </p:column>
                     </p:dataTable>
                 </h:form>
+            </p:panel>
+              <p:panel header="CRIAR CONTA POUPANÇA" 
+                     >
+                <h:form id="form-cadastro" >
+
+                    <div class="ui-fluid">
+                        <p:panelGrid columns="2" >
+                            <p:outputLabel value="Cliente" />
+                            <p:selectOneMenu value="#{beanContaC.contaCorrente.cliente}"  converter="converterCliente">
+                            <f:selectItem itemLabel="(selecione)"  noSelectionOption="true"/>
+                            <f:selectItems value="#{beanContaP.clientes}" var="cliente"  itemLabel="#{cliente.nome}"  />
+                        </p:selectOneMenu>
+                            
+                            <p:outputLabel value="Valor" />
+                            <p:inputText value="#{beanContaP.contaPoupanca.valorDepositado}"
+                                         required="true" requiredMessage="Informe o nome!"/>
+
+
+                        </p:panelGrid>
+                    </div>
+                    <p:messages />
+                    <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
+                                     actionListener="#{beanContaP.salvar()}"
+                                     update="op-poupanca" />
+                    <p:commandButton value="Cancelar" icon="pi pi-times"
+                                     actionListener="#{beanCliente.cancelar()}"
+                                     update="op-poupanca" immediate="true" />
+                </h:form>
+            </p:panel>
+
+        </p:outputPanel>
     </ui:define>
      
 </ui:composition>
