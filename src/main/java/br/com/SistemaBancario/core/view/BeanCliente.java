@@ -3,6 +3,7 @@ package br.com.SistemaBancario.core.view;
 import br.com.SistemaBancario.model.dao.ClienteDao;
 import br.com.SistemaBancario.model.domain.Cliente;
 import br.com.SistemaBancario.utils.filter.ExceptionHandler;
+import jakarta.persistence.Transient;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,6 +45,11 @@ public class BeanCliente implements Serializable{
     public void cancelar() {
         cliente = null;
     }
+    
+       public void remover(Cliente id){
+        new ClienteDao().delete(id.getIdCliente());
+         buscar();
+    }
 
     public void salvar() {
         if (!cliente.getSenha().equals(confirmarSenha)) {
@@ -71,4 +77,6 @@ public class BeanCliente implements Serializable{
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
+    
+    
 }

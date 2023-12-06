@@ -42,16 +42,6 @@ public class BeanContaP implements Serializable{
         cancelar();
         editando = false;
     }
-
-    /*public void remover(Livro livro) {
-        LivroDao livroDao = new LivroDao();
-        var livroPersist = livroDao.findLivroId(livro.getId());
-        System.out.println(livroPersist);
-        if (livroPersist != null) {
-            new LivroDao().delete(livroPersist);
-        }
-        buscar();
-    }*/
     
      public void remover(ContaPoupanca id){
         new ContaPoupancaDao().delete(id.getId_contaP());

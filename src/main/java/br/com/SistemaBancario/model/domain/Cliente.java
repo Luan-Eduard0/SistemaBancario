@@ -42,4 +42,5 @@ public class Cliente implements Serializable {
     public boolean isNew() {
         return idCliente == null;
     }
+    
 }

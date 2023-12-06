@@ -32,12 +32,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <p:column headerText="Endereço">
                             <p:outputLabel value="#{cli.endereco}" /> 
                         </p:column>
+                        <p:column headerText="Saldo Corrente">
+                            <p:outputLabel value="#{cli.contaCorrente.valorCorrente}" /> 
+                        </p:column>
+                        <p:column headerText="Investimentos/Poupança">
+                            <p:outputLabel value="#{cli.contaPoupanca.valorDepositado}" /> 
+                        </p:column>
 
                         <p:column headerText="Opções">
                             <p:splitButton  value="Editar" action="#{buttonView.save}" update="tabela" icon="pi pi-save">
                                 <p:menuitem value="Adicionar Conta Poupança" action="#{buttonView.update}" update="tabela" icon="pi pi-refresh"/>
                                 <p:menuitem value="Adicionar Conta Corrente" action="#{beanCliente.delete}" ajax="false" icon="pi pi-times"/>
-                                <p:menuitem value="Excluir" action="#{buttonView.update}" update="tabela" icon="pi pi-trash"/>
+                                <p:menuitem value="Excluir" action="#{beanCliente.remover(cli)}" update="tabela" icon="pi pi-trash"/>
                                 <p:divider />
                                
                             </p:splitButton>
