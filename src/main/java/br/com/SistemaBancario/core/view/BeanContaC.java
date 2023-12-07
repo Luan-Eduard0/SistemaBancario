@@ -4,7 +4,9 @@
  */
 package br.com.SistemaBancario.core.view;
 
+import br.com.SistemaBancario.model.dao.ClienteDao;
 import br.com.SistemaBancario.model.dao.ContaCorrenteDao;
+import br.com.SistemaBancario.model.domain.Cliente;
 import br.com.SistemaBancario.model.domain.ContaCorrente;
 import java.io.Serializable;
 import java.util.List;
@@ -43,16 +45,6 @@ public class BeanContaC implements Serializable{
         editando = false;
     }
 
-    /*public void remover(Livro livro) {
-        LivroDao livroDao = new LivroDao();
-        var livroPersist = livroDao.findLivroId(livro.getId());
-        System.out.println(livroPersist);
-        if (livroPersist != null) {
-            new LivroDao().delete(livroPersist);
-        }
-        buscar();
-    }*/
-    
      public void remover(ContaCorrente id){
         new ContaCorrenteDao().delete(id.getId());
          buscar();
@@ -74,4 +66,8 @@ public class BeanContaC implements Serializable{
         this.contaCorrente = contaCorrente;
     }
 
+    
+    public List<Cliente> getClientes() {
+        return new ClienteDao().findAll();
+    }
 }

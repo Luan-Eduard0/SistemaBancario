@@ -17,13 +17,12 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_cliente")
     private Long idCliente;
-    
+
     private String nome;
     private String cpf;
     private String email;
     private String telefone;
     private String endereco;
-
 
     @Column(nullable = false)
     private String senha;
@@ -37,10 +36,40 @@ public class Cliente implements Serializable {
 
     @OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private ContaPoupanca contaPoupanca;
-    
-     @Transient
+
+    @Transient
     public boolean isNew() {
         return idCliente == null;
     }
-    
+
+    @Override
+    public String toString() {
+
+        return "Cliente{ idCliente: " + idCliente + " nome: " + nome + " cpf: " + cpf + " email: " + email + " telefone: " + telefone + " endereco: " + endereco + "}";
+
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Cliente))
+        {
+            return false;
+        }
+        Cliente other = (Cliente) obj;
+        if (idCliente == null) {
+            if (other.idCliente != null) {
+                return false;
+            }
+        } else if (!idCliente.equals(other.idCliente)) {
+            return false;
+        }
+        return true;
+    }
+
 }

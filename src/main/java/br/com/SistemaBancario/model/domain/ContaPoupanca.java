@@ -31,6 +31,10 @@ public class ContaPoupanca implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
     private Cliente cliente;
+   
+    @ManyToOne
+    @JoinColumn(name = "id_agencia", referencedColumnName = "id_agencia")
+    private Agencia agencia;
 
-
+    
 }

@@ -28,6 +28,11 @@ public class Agencia implements Serializable{
     @Column(name = "id_agencia")
     private Long idAgencia;
 
+    private String nome;
+    
     @OneToMany(mappedBy = "agencia", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ContaCorrente> contaCorrentes;
+    
+    @OneToMany(mappedBy = "agencia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ContaPoupanca> contaPoupanca;
 }

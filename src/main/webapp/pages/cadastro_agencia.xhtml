@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+agenciack nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+agenciack nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<ui:composition  template="../template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="titulo">Pagina Inicial</ui:define>
+    <ui:define name="conteudo">
+        <p:outputPanel id="op-agencia">
+             <p:panel header="Cadastro de Agencias">
+                <h:form id="tabela">
+                    <p:commandButton value="Cadastrar Agência" actionListener="#{beanAgencia.novo()}"/> 
+                    <p:dataTable  value="#{beanAgencia.agencias}" var="agencia">
+                        <p:column headerText="Nome" >
+                            <p:outputLabel value="#{agencia.nome}"/>
+                        </p:column>
+                        <p:column headerText="Opções">
+                            <p:splitButton  value="Editar" action="#{buttonView.save}" update="tabela" icon="pi pi-save">
+                                <p:menuitem value="Excluir" action="#{beanAgencia.remover(agencia)}" update="tabela" icon="pi pi-trash"/>
+                            </p:splitButton>
+
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:panel>
+            <p:panel header="Cadastrar Agencia" 
+                     >
+                <h:form id="form-cadastro" >
+
+                    <div class="ui-fluid">
+                        <p:panelGrid columns="2" >
+                            <p:outputLabel value="Nome" />
+                            <p:inputText value="#{beanAgencia.agencia.nome}"
+                                         required="true" requiredMessage="Informe o nome!"/>
+
+                        </p:panelGrid>
+                    </div>
+                    <p:messages />
+                    <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
+                                     actionListener="#{beanAgencia.salvar()}"
+                                     update="op-agencia" />
+                    <p:commandButton value="Cancelar" icon="pi pi-times"
+                                     actionListener="#{beanCliente.cancelar()}"
+                                     update="op-agencia" immediate="true" />
+                </h:form>
+            </p:panel>
+
+        </p:outputPanel>
+    </ui:define>
+     
+    
+    
+</ui:composition>

@@ -24,7 +24,7 @@
 
                         <p:column headerText="Opções">
                             <p:splitButton  value="Editar" action="#{buttonView.save}" update="tabela" icon="pi pi-save">
-                                <p:menuitem value="Excluir" action="#{beanContaP.contaPoupanca.remover(conta)}" update="tabela" icon="pi pi-trash"/>
+                                <p:menuitem value="Excluir" action="#{beanContaP.remover(conta)}" update="tabela" icon="pi pi-trash"/>
                             </p:splitButton>
 
                         </p:column>
@@ -40,7 +40,7 @@
                             <p:outputLabel value="Cliente" />
                             <p:selectOneMenu value="#{beanContaP.contaPoupanca.cliente}"  converter="converterCliente">
                             <f:selectItem itemLabel="(selecione)"  noSelectionOption="true"/>
-                            <f:selectItems value="#{beanContaP.clientes}" var="cliente"  itemLabel="#{cliente.nome}"  />
+                            <f:selectItems value="#{beanContaP.clientes}" var="cliente" itemValue="#{cliente}" itemLabel="#{cliente.nome}"  />
                         </p:selectOneMenu>
                             
                             <p:outputLabel value="Valor" />
