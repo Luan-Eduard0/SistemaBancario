@@ -1,10 +1,7 @@
 package br.com.SistemaBancario.model.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,10 +20,15 @@ public class Emprestimo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_emprestimo;
+
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Cliente cliente;
+
     private Boolean ativo;
     private Integer parcelas;
     private Double valor;
+    private Double valorParcela;
     private Double valorEmprestimo;
     private String dataRealizado;
     private String dataPagamento;
