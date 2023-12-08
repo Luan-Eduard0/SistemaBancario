@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.SistemaBancario.core.view.util;
 
 import br.com.SistemaBancario.model.dao.ClienteDao;
@@ -11,10 +7,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-/**
- *
- * @author Pedro
- */
 @FacesConverter("converterCliente")
 public class converterCliente implements Converter {
 

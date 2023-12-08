@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.com.SistemaBancario.core.view;
 
 import br.com.SistemaBancario.model.dao.ClienteDao;
@@ -16,10 +12,6 @@ import javax.faces.bean.ViewScoped;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- *
- * @author contaPoupancas
- */
 @Getter
 @ManagedBean
 @ViewScoped

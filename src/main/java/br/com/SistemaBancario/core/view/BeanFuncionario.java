@@ -19,7 +19,7 @@ import java.util.List;
 @Setter
 public class BeanFuncionario implements Serializable{
 
-    // Getters e Setters
+   
     private Funcionario funcionario;
     private String confirmarSenha;
     private List<Funcionario> funcionarios;
