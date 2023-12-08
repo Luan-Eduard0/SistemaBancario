@@ -3,6 +3,7 @@ package br.com.SistemaBancario.core.view;
 import br.com.SistemaBancario.model.dao.ClienteDao;
 import br.com.SistemaBancario.model.domain.Cliente;
 import br.com.SistemaBancario.utils.filter.ExceptionHandler;
+import java.io.IOException;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +13,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Getter
 @ManagedBean
@@ -77,5 +83,46 @@ public class BeanCliente implements Serializable{
         this.clientes = clientes;
     }
     
-    
+    private String login;
+    private String senha;
+
+    public void logar() {
+        var usuario = new ClienteDao().buscarClientePorLogin(login);
+        if (usuario == null || !usuario.getSenha().equals(senha)) {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR,
+                            "Login e/ou senha não encontrados", login));
+            return;
+        }
+
+        
+        
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance()
+                .getExternalContext().getRequest();
+        HttpSession session = request.getSession();
+
+        session.setAttribute("clienteLogado", usuario);
+
+        try {
+            FacesContext.getCurrentInstance()
+                    .getExternalContext().redirect(request.getContextPath() + "/pages/index_cliente.jsf");
+        } catch (IOException ex) {
+            Logger.getLogger(BeanCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void logout() {
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance()
+                .getExternalContext().getRequest();
+        HttpSession session = request.getSession();
+        session.removeAttribute("clienteLogado");
+        session.invalidate();
+        try {
+            FacesContext.getCurrentInstance()
+                    .getExternalContext().redirect(request.getContextPath());
+        } catch (IOException ex) {
+            Logger.getLogger(BeanCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }

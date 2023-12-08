@@ -16,17 +16,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     </h:head>
     <ui:define name="titulo">Pagina Inicial</ui:define>
     <ui:define name="conteudo">
-          <p:staticMessage summary="Bem vindo, #{beanIndex.usuario.nome}" severity="info"/>
+       
     </ui:define>
 
     <p:panel header="Sistema Bancario - Login" style="width: 300px; margin: 35vh auto; text-align: center">
         <h:form>
             <p:panelGrid columns="1" columnClasses="col-12 md">
-                <p:inputText placeholder="E-mail" required="true" value="#{beanLogin.login}"/>
-                <p:password placeholder="Senha"  required="true" value="#{beanLogin.senha}"/>
+                <p:inputText placeholder="E-mail" required="true" value="#{beanCliente.login}"/>
+                <p:password placeholder="Senha"  required="true" value="#{beanCliente.senha}"/>
             </p:panelGrid>
             <div style="width: 40%; margin:auto;">
-                <p:commandButton value="Entrar" style="width: 100%; background-color: black; border-color: black" actionListener="#{beanLogin.fazerLogin()}" update="@form"/>
+                <p:commandButton value="Entrar" style="width: 100%; background-color: black; border-color: black" actionListener="#{beanCliente.logar()}" update="@form"/>
                 <p:linkButton value="Cadastrar" style="margin-top: 5px; width: 100%; background-color: black; border-color: black" outcome="cadastro_gerente.jsf"/>
             </div>
         </h:form>

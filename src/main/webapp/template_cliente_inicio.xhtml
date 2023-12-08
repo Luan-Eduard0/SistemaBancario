@@ -129,8 +129,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <p:menuitem value="Inicio" outcome="/pages/index_cliente.jsf" icon="pi pi-home" class="teste" />
                     <p:menuitem value="Emprestimos" outcome="/pages/emprestimos" icon = "pi pi-users"/>
                     <p:submenu label="Contas" icon="pi pi-credit-card">
-                        <p:menuitem value="Conta Corrente" outcome="/pages/cadastro_cliente_contaCorrente"/>
-                        <p:menuitem value="Conta Poupança" outcome="/pages/cadastro_cliente_contaPoupanca"/>
+                        <p:menuitem value="Conta Corrente" outcome="/pages/cliente_contaCorrente"/>
+                        <p:menuitem value="Conta Poupança" outcome="/pages/cliente_contaPoupanca"/>
                     </p:submenu>
 
                     <p:menuitem value="Sair" icon="pi pi-power-off"/>
@@ -138,10 +138,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             </h:form>
         </div>
         <div style="margin: 15px 0px">
-            <p:staticMessage severity="info" summary="Bem vindo, #{beanIndex.usuario.nome}" />
             <ui:insert name="conteudo" />
         </div>
-        <div > <p:panelGrid columns="3" class="index-grid">
+        <div> 
+            <p:panelGrid columns="3" class="index-grid">
                 <p:column id="em_card"><div class="title">Emprestimo</div>
                     <div>
                         <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>

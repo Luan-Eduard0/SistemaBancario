@@ -4,7 +4,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
 -->
 <!DOCTYPE html>
-<ui:composition  template="../template_cliente.xhtml"
+<ui:composition  template="../template_cliente_inicio.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
@@ -12,6 +12,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:define name="titulo">Pagina Inicial</ui:define>
     <ui:define name="conteudo">
+        
+        <p:staticMessage style="margin-top: 15px" severity="info" summary="Bem vindo, #{beanIndex.cliente.nome}" />
     </ui:define>
      
 </ui:composition>
