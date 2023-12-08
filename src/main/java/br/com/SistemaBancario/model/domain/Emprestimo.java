@@ -23,6 +23,7 @@ public class Emprestimo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_emprestimo;
+    private Cliente cliente;
     private Boolean ativo;
     private Integer parcelas;
     private Double valor;

@@ -8,7 +8,7 @@
     <ui:define name="conteudo">
             <p:outputPanel id="painel-emprestimo" >
                 <p:panel header="Realizar novo emprestimo" 
-                         rendered="#{beanEmprestimo.emprestimo == null}" >
+                          >
                     <h:form id="form-lista">
                         <p:commandButton value="Solicitar emprestimo" actionListener="#{beanEmprestimo.novo()}" update="painel-emprestimo"/>
                         <p:dataTable value="#{beanEmprestimo.emprestimos}" var="emprestimo">

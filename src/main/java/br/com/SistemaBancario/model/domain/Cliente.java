@@ -23,6 +23,7 @@ public class Cliente implements Serializable {
     private String email;
     private String telefone;
     private String endereco;
+    private Double limite;
 
     @Column(nullable = false)
     private String senha;

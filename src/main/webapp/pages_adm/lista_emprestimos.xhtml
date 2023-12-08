@@ -1,15 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<ui:composition  template="../template.xhtml"
+                 xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:p="http://primefaces.org/ui"
+                 xmlns:f="http://java.sun.com/jsf/core"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="titulo" >Emprestimo</ui:define>
+    <ui:define name="conteudo">
+            <p:outputPanel id="painel-emprestimo" >
+                <p:panel header="Realizar novo emprestimo" 
+                          >
+                    <h:form id="form-lista">
+                        <p:commandButton value="Solicitar emprestimo" actionListener="#{beanEmprestimo.novo()}" update="painel-emprestimo"/>
+                        <p:dataTable value="#{beanEmprestimo.emprestimos}" var="emprestimo">
+                            <p:column headerText="Data do emprestimo" >
+                                <p:outputLabel value="#{emprestimo.nome}"/>
+                            </p:column>
+                            <p:column headerText="Valor">
+                                <p:outputLabel value="#{emprestimo.valor}" />
+                            </p:column>
+                            <p:column headerText="Parcelas">
+                                <p:outputLabel value="#{emprestimo.parcelas}" />
+                            </p:column>
+                            <p:column headerText="Status">
+                                <p:outputLabel value="#{emprestimo.ativo}" /> 
+                            </p:column>
+
+                            <p:column headerText="Opções">
+                                <p:commandButton value="Adiantar Parcelas" actionListener="#{beanEmprestimo.editar(emprestimo)}" update="painel-emprestimo"/>
+
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+               
+            </p:outputPanel>
+    </ui:define>
+
+</ui:composition>
