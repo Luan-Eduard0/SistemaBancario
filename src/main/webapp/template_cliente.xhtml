@@ -34,13 +34,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <h:body>
         <div>
             <h:form>
-               <p:menubar style="background-color: salmon; margin: -10px -10px;">
+              <p:menubar style="background-color: salmon; margin: -10px -10px;">
 
-                    <p:menuitem value="Inicio" outcome="/pages/index.jsf" icon="pi pi-home" class="teste" />
+                    <p:menuitem value="Inicio" outcome="/pages/index_cliente.jsf" icon="pi pi-home" class="teste" />
                     <p:menuitem value="Emprestimos" outcome="/pages/emprestimos" icon = "pi pi-users"/>
                     <p:submenu label="Contas" icon="pi pi-credit-card">
-                        <p:menuitem value="Conta Corrente" outcome="/pages/conta_corrente"/>
-                        <p:menuitem value="Conta Poupança" outcome="/pages/conta_poupanca"/>
+                        <p:menuitem value="Conta Corrente" outcome="/pages/cadastro_cliente_contaCorrente"/>
+                        <p:menuitem value="Conta Poupança" outcome="/pages/cadastro_cliente_contaPoupanca"/>
                     </p:submenu>
 
                     <p:menuitem value="Sair" icon="pi pi-power-off"/>
