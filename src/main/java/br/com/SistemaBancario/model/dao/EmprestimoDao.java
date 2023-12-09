@@ -22,6 +22,7 @@ public class EmprestimoDao extends GenericDao<Emprestimo, Long> {
             }
         }
     }
+    //
         public List<Emprestimo> buscarIDCliente(Cliente cliente){
             String sql = "SELECT * FROM emprestimo WHERE id_cliente = :cliente";
         Query query = getEntityManager().createQuery(sql, Emprestimo.class)
