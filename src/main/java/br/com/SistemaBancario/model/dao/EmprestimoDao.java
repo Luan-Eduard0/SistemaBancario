@@ -1,7 +1,11 @@
 package br.com.SistemaBancario.model.dao;
 
+import br.com.SistemaBancario.model.domain.Cliente;
 import br.com.SistemaBancario.model.domain.Emprestimo;
-import jakarta.transaction.Transactional;
+import br.com.SistemaBancario.model.domain.Usuario;
+import jakarta.persistence.Query;
+
+import java.util.List;
 
 public class EmprestimoDao extends GenericDao<Emprestimo, Long> {
     public void NumeroParcelas(Emprestimo emprestimo) {
@@ -18,16 +22,12 @@ public class EmprestimoDao extends GenericDao<Emprestimo, Long> {
             }
         }
     }
-            @Transactional
-            public void fimEmprestimo(int quantidadeParcelas, Emprestimo emprestimo) {
-            if (quantidadeParcelas == 0 && emprestimo.getAtivo() == true) {
-                emprestimo.setAtivo(false);
-                save(emprestimo);
-            }
-            else if(quantidadeParcelas > 0 && emprestimo.getAtivo() == true) {
-                 String sa = "Emprestimo ainda ativo";
-            }
-
+        public List<Emprestimo> buscarIDCliente(Cliente cliente){
+            String sql = "SELECT * FROM emprestimo WHERE id_cliente = :cliente";
+        Query query = getEntityManager().createQuery(sql, Emprestimo.class)
+                .setParameter("cliente", cliente);
+        return query.getResultList();
         }
+
     }
 
