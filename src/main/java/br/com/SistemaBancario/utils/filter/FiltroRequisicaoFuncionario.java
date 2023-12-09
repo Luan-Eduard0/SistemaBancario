@@ -1,4 +1,5 @@
 package br.com.SistemaBancario.utils.filter;
+import br.com.SistemaBancario.model.domain.Funcionario;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 //Coloca as page aqui
-@WebFilter("")
+@WebFilter("/pages_adm/*")
 public class FiltroRequisicaoFuncionario implements Filter {
         @Override
         public void init(FilterConfig filterConfig) throws ServletException {
@@ -25,9 +26,11 @@ public class FiltroRequisicaoFuncionario implements Filter {
             HttpSession httpSession = httpServletRequest.getSession(true);
 
 
-            if(httpSession.getAttribute("") == null) {
+            Funcionario funcionario = (Funcionario) httpSession.getAttribute("funcionarioLogado");
+            
+            if(funcionario == null || funcionario.getId_funcionario()== null) {
                 //COLOQUE A PAGINA AQUI
-                httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "");
+                httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login.jsf");
                 return;
             }
 
