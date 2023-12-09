@@ -14,8 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     <ui:define name="conteudo">
         <p:outputPanel id="op-cliente">
             <p:panel header="Cadastro de Clientes">
-                <h:form id="tabela">
-                    <p:commandButton value="Cadastrar Cliente" actionListener="#{beanCliente.novo()}"/> 
+                <h:form id="tabela">    
                     <p:dataTable  value="#{beanCliente.clientes}" var="cli">
                         <p:column headerText="Nome" >
                             <p:outputLabel value="#{cli.nome}"/>
@@ -41,8 +40,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
 
                         <p:column headerText="Opções">
                             <p:splitButton  value="Editar" action="#{buttonView.save}" update="tabela" icon="pi pi-save">
-                                <p:menuitem value="Adicionar Conta Poupança" action="#{buttonView.update}" update="tabela" icon="pi pi-refresh"/>
-                                <p:menuitem value="Adicionar Conta Corrente" action="#{beanCliente.delete}" ajax="false" icon="pi pi-times"/>
                                 <p:menuitem value="Excluir" action="#{beanCliente.remover(cli)}" update="tabela" icon="pi pi-trash"/>
                                 <p:divider />
                                

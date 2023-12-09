@@ -1,7 +1,11 @@
 package br.com.SistemaBancario.core.view;
 
 import br.com.SistemaBancario.model.dao.AgenciaDao;
+import br.com.SistemaBancario.model.dao.ClienteDao;
+import br.com.SistemaBancario.model.dao.ContaCorrenteDao;
 import br.com.SistemaBancario.model.domain.Agencia;
+import br.com.SistemaBancario.model.domain.Cliente;
+import br.com.SistemaBancario.model.domain.ContaCorrente;
 import br.com.SistemaBancario.utils.filter.ExceptionHandler;
 import java.io.Serializable;
 import java.util.List;
@@ -70,5 +74,12 @@ public class BeanAgencia implements Serializable{
 
     public void setAgencias(List<Agencia> agencias) {
         this.agencias = agencias;
+    }
+    
+    public List<Cliente> getClientes() {
+        return new ClienteDao().findAll();
+    }
+    public List<ContaCorrente> getContaC() {
+        return new ContaCorrenteDao().findAll();
     }
 }

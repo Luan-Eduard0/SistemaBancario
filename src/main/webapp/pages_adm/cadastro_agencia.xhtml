@@ -13,18 +13,11 @@ agenciack nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to ed
     <ui:define name="titulo">Pagina Inicial</ui:define>
     <ui:define name="conteudo">
         <p:outputPanel id="op-agencia">
-             <p:panel header="Cadastro de Agencias">
+             <p:panel header="Listagem de agências">
                 <h:form id="tabela">
-                    <p:commandButton value="Cadastrar Agência" actionListener="#{beanAgencia.novo()}"/> 
                     <p:dataTable  value="#{beanAgencia.agencias}" var="agencia">
                         <p:column headerText="Nome" >
                             <p:outputLabel value="#{agencia.nome}"/>
-                        </p:column>
-                        <p:column headerText="Opções">
-                            <p:splitButton  value="Editar" action="#{buttonView.save}" update="tabela" icon="pi pi-save">
-                                <p:menuitem value="Excluir" action="#{beanAgencia.remover(agencia)}" update="tabela" icon="pi pi-trash"/>
-                            </p:splitButton>
-
                         </p:column>
                     </p:dataTable>
                 </h:form>

@@ -15,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <style>
             
             body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link.ui-state-hover{
-               background: linear-gradient(90deg, rgba(255,98,80,1) 56%, rgba(247,102,102,1) 100%);
+             background: linear-gradient(0deg, rgba(247,215,222,0.19511554621848737) 0%, rgba(250,128,114,1) 43%);
             }
             body .ui-menu .ui-menu-list .ui-menu-child{
               background: linear-gradient(90deg, rgba(250,128,114,1) 14%, rgba(239,199,199,1) 100%);
@@ -42,8 +42,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <p:menuitem value="Conta Corrente" outcome="/pages/cliente_contaCorrente"/>
                         <p:menuitem value="Conta Poupança" outcome="/pages/cliente_contaPoupanca"/>
                     </p:submenu>
-
-                    <p:menuitem value="Sair" icon="pi pi-power-off"/>
+                     <p:menuitem value="Agencias" outcome="/pages_adm/cadastro_agencia.jsf" icon="pi pi-building" class="teste" />
+                    <p:menuitem value="Sair" icon="pi pi-power-off"  actionListener="#{beanCliente.logout()}"/>
                 </p:menubar>
             </h:form>
         </div>

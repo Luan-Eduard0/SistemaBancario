@@ -7,27 +7,17 @@
     <ui:define name="titulo" >Emprestimo</ui:define>
     <ui:define name="conteudo">
             <p:outputPanel id="painel-corrente" >
-                <p:panel header="Realizar novo emprestimo" 
+                <p:panel header="Informações de conta" 
                           >
                     <h:form id="form-lista">
-                        <p:dataTable value="#{beanContaC.contaCorrente}" var="corrente">
-                            <p:column headerText="Data do emprestimo" >
-                                <p:outputLabel value="#{emprestimo.nome}"/>
+                        <p:dataTable value="#{beanIndex.cliente.contaCorrente}" var="corrente">
+                            <p:column headerText="Saldo" >
+                                <p:outputLabel value="#{corrente.valorCorrente}"/>
                             </p:column>
-                            <p:column headerText="Valor">
-                                <p:outputLabel value="#{emprestimo.valor}" />
+                            <p:column headerText="Agência">
+                                <p:outputLabel value="#{corrente.agencia.nome}" />
                             </p:column>
-                            <p:column headerText="Parcelas">
-                                <p:outputLabel value="#{emprestimo.parcelas}" />
-                            </p:column>
-                            <p:column headerText="Status">
-                                <p:outputLabel value="#{emprestimo.ativo}" /> 
-                            </p:column>
-
-                            <p:column headerText="Opções">
-                                <p:commandButton value="Adiantar Parcelas" actionListener="#{beanEmprestimo.editar(emprestimo)}" update="painel-corrente"/>
-
-                            </p:column>
+                          
                         </p:dataTable>
                     </h:form>
                 </p:panel>

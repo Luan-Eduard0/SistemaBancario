@@ -15,7 +15,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <style>
 
             body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link.ui-state-hover{
-                background: linear-gradient(90deg, rgba(255,98,80,1) 56%, rgba(247,102,102,1) 100%);
+                background: linear-gradient(0deg, rgba(247,215,222,0.19511554621848737) 0%, rgba(250,128,114,1) 43%);
+
             }
             body .ui-menu .ui-menu-list .ui-menu-child{
                 background: linear-gradient(90deg, rgba(250,128,114,1) 14%, rgba(239,199,199,1) 100%);
@@ -52,14 +53,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 background: #333 url(https://cdn.pixabay.com/photo/2016/12/06/04/17/money-1885540_1280.jpg) center;
             }
             #tr_card{
-                 background: #333 url(https://cdn.pixabay.com/photo/2015/09/06/01/06/credit-card-926862_1280.jpg) center;
+                background: #333 url(https://cdn.pixabay.com/photo/2015/09/06/01/06/credit-card-926862_1280.jpg) center;
             }
             #pg_card{
-                 background: #333 url(https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg) center;
+                background: #333 url(https://cdn.pixabay.com/photo/2019/07/13/10/25/payment-4334491_1280.jpg) center;
             }
 
             .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell::hover{
                 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
             }
 
             .ui-panelgrid .p-grid .ui-panelgrid-cell, .ui-panelgrid .grid .ui-panelgrid-cell, .ui-panelgrid .ui-grid-responsive .ui-panelgrid-cell::before{
@@ -104,12 +106,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 font-size: 20px;
                 background-color: salmon;
                 border: salmon;
+                color: black;
 
             }
             body .index-grid .ui-button:after{
             }
             .container{
-                margin-top: 25px; 
+                margin-top: 25px;
                 height: 300px;
                 width: 100%;
                 content: "";
@@ -146,19 +149,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <div>
                         <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
                     </div>
-                    <div class="conteudo"><p:commandButton value="Realizar emprestimos"></p:commandButton></div></p:column>
-
+                    <div class="conteudo">
+                        <p:linkButton value="Realizar emprestimos" outcome="emprestimos.jsf"/></div></p:column>
+                    
                 <p:column id="tr_card"><div class="title">Transações</div>
                     <div>
-                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
+                        <h2 contenteditable="true">Realize<br/>transações aqui</h2>
                     </div>
-                    <div class="conteudo"><p:commandButton value="Realizar transações"></p:commandButton></div></p:column>
+                    <div class="conteudo"><p:linkButton value="Realizar Transações" outcome="transacoes.jsf"/></div></p:column>
 
                 <p:column id="pg_card"><div class="title">Pagamentos</div>
                     <div>
-                        <h2 contenteditable="true">Realize<br/>emprestimos aqui</h2>
+                        <h2 contenteditable="true">Realize<br/>pagamentos aqui</h2>
                     </div>
-                    <div class="conteudo"><p:commandButton value="Realizar pagamentos"></p:commandButton></div></p:column>
+                    <div class="conteudo"><p:linkButton value="Realizar Pagamentos" outcome="pagamentos.jsf"/></div></p:column>
             </p:panelGrid>
         </div>
 
