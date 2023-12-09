@@ -3,6 +3,7 @@ package br.com.SistemaBancario.model.domain;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import lombok.*;
 
@@ -29,6 +30,12 @@ public class ContaCorrente implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_agencia", referencedColumnName = "id_agencia")
     private Agencia agencia;
+
+    @OneToMany(mappedBy = "conta_origem")
+    private Set<Transferencia> transferencia_origem;
+
+    @OneToMany(mappedBy = "conta_destino")
+    private Set<Transferencia> transferencia_destino;
 
 
 }

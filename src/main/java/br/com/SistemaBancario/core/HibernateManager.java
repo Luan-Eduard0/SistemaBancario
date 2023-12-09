@@ -27,6 +27,7 @@ public class HibernateManager {
                     .addAnnotatedClass(ContaPoupanca.class)
                     .addAnnotatedClass(Usuario.class)
                     .addAnnotatedClass(Emprestimo.class)
+                    .addAnnotatedClass(Transferencia.class)
 
                     .getMetadataBuilder().build();
             SessionFactory sessionFactory = md
