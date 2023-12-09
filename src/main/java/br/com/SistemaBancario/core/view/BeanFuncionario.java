@@ -1,6 +1,5 @@
 package br.com.SistemaBancario.core.view;
 
-import br.com.SistemaBancario.model.dao.ClienteDao;
 import br.com.SistemaBancario.model.dao.FuncionarioDao;
 import br.com.SistemaBancario.model.domain.Funcionario;
 import br.com.SistemaBancario.utils.filter.ExceptionHandler;
@@ -80,7 +79,7 @@ public class BeanFuncionario implements Serializable{
     private String senha;
 
     public void logar() {
-        var usuario = new ClienteDao().buscarClientePorLogin(login);
+        var usuario = new FuncionarioDao().buscarFuncionarioPorLogin(login);
         if (usuario == null || !usuario.getSenha().equals(senha)) {
             FacesContext.getCurrentInstance().addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR,

@@ -43,7 +43,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                         <p:menuitem value="Conta Poupança" outcome="/pages_adm/cadastro_conta_poupanca.jsf"/>
                     </p:submenu>
                     <p:menuitem value="Agencias" outcome="/pages_adm/cadastro_agencia.jsf" icon="pi pi-home" class="teste" />
-                    <p:menuitem value="Sair" icon="pi pi-power-off"/>
+                    <p:menuitem value="Sair" icon="pi pi-power-off" actionListener="#{beanCliente.logout()}"/>
                 </p:menubar>
             </h:form>
         </div>

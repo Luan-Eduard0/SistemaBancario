@@ -4,7 +4,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
 -->
 <!DOCTYPE html>
-<ui:composition  
+<ui:composition 
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:p="http://primefaces.org/ui"
@@ -14,23 +14,47 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
         <title>Cadastro - Sistema bancario <ui:insert name="titulo"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <ui:define name="titulo">Pagina Inicial</ui:define>
     <ui:define name="conteudo">
-          <p:staticMessage summary="Bem vindo, #{beanIndex.usuario.nome}" severity="info"/>
     </ui:define>
+    <p:outputPanel style="width: 500px; margin: 35vh auto; text-align: center">
+       
+             <p:panel header="Cadastrar Funcionario"  >
+                <h:form id="form-cadastro" >
 
-    <p:panel header="Sistema Bancario - Cadastro" style="width: 300px; margin: 35vh auto; text-align: center">
-        <h:form>
-            <p:panelGrid columns="1" columnClasses="col-12 md">
-                <p:inputText placeholder="E-mail" required="true" value="#{beanLogin.login}"/>
-                <p:password placeholder="Senha"  required="true" value="#{beanLogin.senha}"/>
-            </p:panelGrid>
-            <div style="width: 40%; margin:auto;">
-                <p:commandButton value="Salvar" style="width: 100%; background-color: black; border-color: black" actionListener="#{beanLogin.fazerLogin()}" update="@form"/>
-                <p:linkButton value="Cancelar" style="margin-top: 5px; width: 100%; background-color: black; border-color: black" outcome="login.jsf"/>
-            </div>
-        </h:form>
-    </p:panel>
+                    <div class="ui-fluid">
+                        <p:panelGrid columns="2" >
+                            <p:outputLabel value="Nome" />
+                            <p:inputText value="#{beanFuncionario.funcionario.nome}"
+                                         required="true" requiredMessage="Informe o nome!"/>
 
+                            <p:outputLabel value="E-mail" />
+                            <p:inputText value="#{beanFuncionario.funcionario.email}"
+                                         required="true" requiredMessage="Informe o e-mail!"/>
+
+                            <p:outputLabel value="CPF" />
+                            <p:inputText value="#{beanFuncionario.funcionario.cpf}"
+                                         required="true" requiredMessage="Informe o cpf!"/>
+
+                            <p:outputLabel value="Login" />
+                            <p:inputText value="#{beanFuncionario.funcionario.login}"
+                                         required="true" requiredMessage="Informe o telefone!"/>
+
+                            <p:outputLabel value="Senha" />
+                            <p:inputText value="#{beanFuncionario.funcionario.senha}"
+                                         required="true" requiredMessage="Informe o endereço!"/>
+
+                        </p:panelGrid>
+                    </div>
+                    <p:messages />
+                    <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
+                                     actionListener="#{beanFuncionario.salvar()}"
+                                      />
+                    <p:commandButton value="Cancelar" icon="pi pi-times"
+                                     actionListener="#{beanFuncionario.cancelar()}"
+                                     immediate="true" />
+                </h:form>
+            </p:panel>
+      
+    </p:outputPanel>
 </ui:composition>
 
