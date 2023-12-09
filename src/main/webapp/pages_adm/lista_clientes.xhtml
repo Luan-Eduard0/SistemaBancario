@@ -61,10 +61,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <p:outputLabel value="Nome" />
                             <p:inputText value="#{beanCliente.cliente.nome}"
                                          required="true" requiredMessage="Informe o nome!"/>
-                            <p:outputLabel value="Nome f" />
-                            <p:inputText value="#{beanFuncionario.funcionario.nome}"
-                                         required="true" requiredMessage="Informe o nome!"/>
-
                             <p:outputLabel value="E-mail" />
                             <p:inputText value="#{beanCliente.cliente.email}"
                                          required="true" requiredMessage="Informe o e-mail!"/>
@@ -95,9 +91,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                     <p:messages />
                     <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
                                      actionListener="#{beanCliente.salvar()}"
-                                     update="op-cliente" />
-                    <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
-                                     actionListener="#{beanFuncionario.salvar()}"
                                      update="op-cliente" />
                     <p:commandButton value="Cancelar" icon="pi pi-times"
                                      actionListener="#{beanCliente.cancelar()}"

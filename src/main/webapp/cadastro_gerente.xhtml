@@ -42,16 +42,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                             <p:outputLabel value="Senha" />
                             <p:inputText value="#{beanFuncionario.funcionario.senha}"
                                          required="true" requiredMessage="Informe o endereço!"/>
-
+                            <p:outputLabel value="Senha" />
+                            <p:inputText value="#{beanFuncionario.confirmarSenha}"  
+                                         required="true" requiredMessage="Informe o endereço!" />
                         </p:panelGrid>
                     </div>
                     <p:messages />
                     <p:commandButton value="Salvar" icon="pi pi-check" style="margin-right: 10px;"
                                      actionListener="#{beanFuncionario.salvar()}"
                                       />
-                    <p:commandButton value="Cancelar" icon="pi pi-times"
-                                     actionListener="#{beanFuncionario.cancelar()}"
-                                     immediate="true" />
+                     <p:linkButton value="Voltar" style="margin-right: 10px;" outcome="login_funcionario.jsf"/>
                 </h:form>
             </p:panel>
       
