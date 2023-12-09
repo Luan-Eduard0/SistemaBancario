@@ -2,7 +2,6 @@ package br.com.SistemaBancario.model.dao;
 
 import br.com.SistemaBancario.model.domain.ContaCorrente;
 import br.com.SistemaBancario.model.domain.ContaPoupanca;
-import br.com.SistemaBancario.model.domain.Transferencia;
 import jakarta.persistence.EntityManager;
 
 import java.util.Set;
